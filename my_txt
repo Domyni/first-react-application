@@ -1,0 +1,62 @@
+Summary
+- Front End, Back End
+- Multi Page Application (MPA) & Single Page Application (SPA)
+- React, Angular, VueJS
+- React create-react-app `npx create-react-app application-name`
+- JSX JavaScript in html syntax
+- Import React from 'react'
+- `npm run start` - Start your application
+- `npm run built` - Bulid your application (Compile)(To deploy on other server)
+- `npm rum test`  - Test your application
+- `npm run eject` - Giving you back the control configuration of react application
+
+Recap
+- Node Package Manager (npm)
+    - Copy Paste Function
+    - Create JS file
+    - Install function as depencies `npm install awesome-function`
+- create-react-app 
+    - create default configuration and entry files
+- JavaScript XML (JSX)
+    - write HTML with JavaScript
+
+Components
+- Class Component (Smart Component)
+    `class` component-name `extends` parent-component-name
+    render (){
+        return <></>
+    }
+- Functional Component Dumb Component
+    `function returning JSX <></>
+- React only recognizes components that starts with a captial lettr, AppBar (Pascal Case) , AppLogo
+- JavaScript Function that handles rendering of a piece of user interface to the browser
+
+-  div ClassName = AppBar
+    img src << app logo.JS
+    a home    < Navigation.JS < Navitagiton path"" name"" icon"" props
+    a Mylist  < Navigation.JS
+    a Movies  < Navigation.JS
+    a Drama   < Navigation.JS
+    button /button
+   /div 
+
+   Props (this is read-only)
+   funtiions (props)
+   constructor (prop){
+       path "aa",
+   }
+
+STATE
+- State can be changed over time
+- Props are read-only (pass down from parent to child)
+- [1, 2, 3, 4, 5].map((value) => value*value)
+
+1. Create a new git hub repo
+2. Link local repository with Gitghub
+    git remove add
+    git branch -M main
+    git push -u origin main
+3. git add files .. (stage files)
+4. git commit -m "commit message"
+---
+5. git push
