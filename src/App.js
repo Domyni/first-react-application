@@ -1,5 +1,5 @@
 import './App.css';
-import Netflix from './components/Netflix/Netflix';
+import Netflix from './components/Netflix/Netflix.jsx';
 
 function App() {
   return (

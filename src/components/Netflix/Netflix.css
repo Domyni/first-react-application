@@ -1,0 +1,40 @@
+.logBtn {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    position: fixed;
+    padding: 15px;
+    right: 0;
+    top: 2%;
+}
+  
+.logBtn button{
+    cursor: pointer;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(182, 42, 0);
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: bolder;
+    font-size: 16px;
+}
+  
+.logBtn button:hover{
+    font-size: 20px;
+}
+  
+.main-nav {
+    display: flex;
+    position: fixed;
+    top: 2%;
+    left: 1%;
+}
+
+body {
+    background: black;
+    box-sizing: border-box;
+}
+  
+main{
+    color: rgb(255, 255, 255);
+}  

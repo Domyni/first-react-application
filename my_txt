@@ -49,8 +49,35 @@ Components
 STATE
 - State can be changed over time
 - Props are read-only (pass down from parent to child)
-- [1, 2, 3, 4, 5].map((value) => value*value)
+- Class AComponent extends Component {
+    state = {
+        clock: '12:30'
+        counter: 0
+    }
 
+    Alternatively
+    constructor(){
+        super();
+        prop.value = '123' // reactd oes not allow this. props is readonly
+        this.state = {
+            clock: '12:30'
+        }
+    }
+
+    this.setState({
+        clock: '12:35'
+    });
+
+    this.setState((state) => {
+        counter: state.counter +1
+    });
+}
+
+Mounting // attaching a component to a browser 
+ - constructor()
+
+
+[1, 2, 3, 4, 5].map((value) => value*value)
 1. Create a new git hub repo
 2. Link local repository with Gitghub
     git remove add

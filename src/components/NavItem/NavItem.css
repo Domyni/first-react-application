@@ -1,0 +1,10 @@
+  .nav-item {
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+  }
+  
+  .nav-item:hover {
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+  }
