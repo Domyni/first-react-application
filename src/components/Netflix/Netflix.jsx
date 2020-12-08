@@ -18,7 +18,6 @@ class Netflix extends Component {
     state = {
         showClock: true,
         username: null,
-        filter: ''
     };
 
     login = () =>{
@@ -30,13 +29,6 @@ class Netflix extends Component {
     logout = () =>{
         this.setState({
             username: null,
-        });
-    };
-
-    filter = (value) => {
-        // console.log(value);
-        this.setState({
-            filter: value
         });
     };
 
@@ -59,7 +51,7 @@ class Netflix extends Component {
                 <main>
                     {this.state.showClock && <Clock/>}
                     <Counter />
-                    <Todo filter={this.filter}/>
+                    <Todo />
                     {this.state.todo}
                     {this.state.username !== null && (
                     <p className="greeting"> Greetings! {this.state.username}</p>
@@ -79,9 +71,12 @@ export default Netflix;
 
 
 
+// PLEASE IGNORE BELOW
 // import ShoppingCart from '../ShoppingCart/ShoppingCart'
 // import PosterList from '../PosterList/PosterList';
 // import Filter from '../Filter/Filter';
+    // State
+    // filter: ''
 
     // componentDidMount(){
     //     setTimeout(() => {
@@ -107,3 +102,10 @@ export default Netflix;
     //     )}
     // <PosterList title="Trending Now"/>
     // <Filter/>
+
+    // filter = (value) => {
+    //     // console.log(value);
+    //     this.setState({
+    //         filter: value
+    //     });
+    // };

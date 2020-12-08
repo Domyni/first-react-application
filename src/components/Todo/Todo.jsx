@@ -12,8 +12,6 @@ class Todo extends Component {
     };
 
     onChangeEvent = (e) => {
-        // console.log(e.target)
-        // console.log(e.target.value)
         this.setState({
             task: e.target.value
         });
@@ -22,12 +20,10 @@ class Todo extends Component {
     onAddEvent = (e) => {
         e.preventDefault();
         if(this.state.task !== ""){
-            this.props.filter(this.state.task);
             this.setState({
             countTask: this.state.countTask + 1,
             taskList: [...this.state.taskList, this.state.task.trim()],
             });
-            // console.log(this.state.taskList);
         }
         this.setState({
             task:""
@@ -49,3 +45,17 @@ class Todo extends Component {
 }
 
 export default Todo;
+
+
+
+
+
+// PLEASE IGNORE BELOW
+
+    // console.log(e.target)
+    // console.log(e.target.value)
+    
+    // console.log(this.state.taskList);
+
+// this.props.taskInput(this.state.task);
+// console.log(this.state.task);
