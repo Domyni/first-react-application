@@ -49,7 +49,7 @@ Components
 STATE
 - State can be changed over time
 - Props are read-only (pass down from parent to child)
-- Class AComponent extends Component {
+- Class Component extends Component {
     state = {
         clock: '12:30'
         counter: 0
@@ -87,3 +87,150 @@ Mounting // attaching a component to a browser
 4. git commit -m "commit message"
 ---
 5. git push
+
+
+Recap 
+ - Props (Property) - read-only
+ - State - changeable
+    class Acomponent extends Component {
+        constructor(){
+            super();
+            this.state = {
+                list: [].
+                username: '',
+                isLoggedIn: true
+            }
+        }
+
+        state = {
+        }
+
+        this.state.list = something // React does not allow us to change state value via assingment operation.
+
+        You need to use
+
+    const newList = this.state.list;
+    newList.push(value;)
+
+    // Async process
+        this.setState({
+            isLoggedIn: true,
+            list: newList
+        });
+
+        this.setState((state)=> {
+            isLoggedIn: true,
+            list:[...state, new value] // create new list from previous state
+        })
+    }
+
+
+React Life Cycle
+
+// Mount -- ONLY RUN ONCE
+    Constructor() -> render () -> componentDidMount()
+
+// Rendering/Updating -- Triggered when changes props/state
+    Component being re-rendered/ re-paint in the browser when there's change in the component props/state
+
+// Unmount
+    Clean up any running processes for your component
+    Remove any subscription API that you have
+    Remove any setInterval
+
+
+Event Handling
+
+function updateUserName(){
+    // updateUserName
+}
+
+<input type="text" name="username" onChange="updateUserName()"/>
+
+class A extends Component {
+
+    function updateUserName = () => {
+        // inherit the scope of this
+        this.setState();
+    }
+
+    render(){
+        return <input type="text" name="username" onChange="updateUserName()"/>;
+    }
+}
+
+
+Conditional Rendering
+- const greeting = userIsLogged ? <WelcomeUser /> : <WelcomeStranger />;
+OR 
+- const greeting = userIsLogged ? <WelcomeUser /> : null;
+
+OR 
+
+render(){
+    return 
+        <div>
+        {userIsLogged ? <WelcomeUser /> : <WelcomeStranger />}
+        {userIsLogged && <WelcomeUser />}; // if this first condition is true then run this <WelcomUser/> otherwise do nothing
+        </div>
+}
+
+
+List Rendering
+- Render an array of Components
+- For-Loop [<TodoItem />, <TodoItem />, <TodoItem />]
+
+const datasource = [
+    {
+        id: '',
+        todoOtem 'buy'
+        done: false
+    }.
+    {
+        id: '',
+        todoOtem 'buy'
+        done: false
+    }.
+      
+        id: '',
+        todoOtem 'buy'
+        done: false
+    }.
+
+]
+
+datasource.map
+
+TodoList
+    -> TodoItem
+
+// KEY
+
+<li>0</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+
+Add key at highest of point of list
+Should be added to the component
+Will not passed down as a props
+Keys are meant for comparing if anything already exist
+Avoid using index as key
+
+// Because since you are using an array, and the index is used as a key, it will still be the same, even if you remove a component in the middle of it.
+// Suppose you have an array like this:
+// | 1 | 2 | 3 | 4 | Key
+// | A | B | C | D | Value
+// And I remove the C. the new array will be:
+// 1 | 2 | 3 | 4 | Key
+// A | B | D | _ | Value
+// And since the key from C hasn’t changed, just the content of it (C to D), React won’t think that it was the 3rd position in the array that was removed (because it was just a content change), but rather the 4th, since the key 4 doesn’t exist anymore!
+// My best regards, from another fellow with difficulty to understand React!
+
+SRC: https://medium.com/@vraa/why-using-an-index-as-key-in-react-is-probably-a-bad-idea-7543de68b17c
+
+Routing
+- Router
+
+
