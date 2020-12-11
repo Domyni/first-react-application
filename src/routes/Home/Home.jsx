@@ -10,7 +10,7 @@ class HomePage extends Component {
         return (
             <div>
                 <p>This is Home Page</p>
-                <p>Username: {this.props.Name}</p>
+                <p>Username : {this.props.Name}</p>
                 <Clock />
                 <Counter />
                 <Todo />  

@@ -277,17 +277,125 @@ Services
 High Order Component
 - a compoenet that contain reusable logic across multiple Components
 
+Context API
+- A new concept provide by Reactr at version 16.8
+
+State Managemnet Library (Redux)
+
+
+// Asynchonous process are usually place or written
+state = {
+    address: ''
+}
+
+componentDidMount(){
+    // you perform async process or data fetching
+}
+
+componentDidUpdate(){
+    // auto save form
+    // send updated form values to database
+}
+
+function updateAddress(address){
+    this.setState({
+        address: address
+    })
+}
+
+<input type="text" onChange={updateAddress}>
+
+Naming convention
+- on + past tense
+- onChanged
+- handleChanged
+
+CSS Methodology
+- Block, Element, Modified (BEM)
+
+Block element normal CSS selector to indicate a block
+Element __
+
+// Card Component
+<div class="card card--selected"> // Block
+    <div class="card_header> // Header
+        <img class="card_banner" src="lizard.jpg" />
+    </div>
+
+    <div class="card_body">
+        <p class="card_title">Lizard</p>
+        <p class="card__description">Description</p>
+    </div>
+
+    <div class="card_footer">
+        <button class="card_button card__button--clicked">Share</button>
+        <button class="card_button">Learn More</button>
+    </div>
+</div>
 
 
 
+CSS Preprocessor
+- SASS
+- npm install node-sass@4.14.1
+- You can c onvert .css into .scss and start using SCSS
 
+// #1 Ability to declare variables for reusable
+$primary-color: blue;
 
+// #2 Ability to nest your selectors
+.btn {
+    color: $primary-color;
+    &:hover{
+    }
 
+    label { // .btn label
+        @include font-styling(14px, blue);
+    }
 
+    + .btn{ // .btn + .btn
+    }
 
+    .btn-primary { // .btn .btn-primary
+    }
 
+    &.btn-primary { // .btn.btn-primary
+    }
+}
 
+// #3 import different sass files
+    @import "variable"
 
+// #4 Mixin (function)
+    @mixin font-styling($font-size, $font-color, $font-family: 'Times News Roman'){
+        font-family: $font-family;
+        font-size: $font-size;
+        color: $font-family;
+    }
+
+    level: 2
+    width: 200
+    @mixin Zoom($width, $height, $level){
+        width: calc($width * $level);
+    }
+
+// componentName.module.[css|scss|sass];
+
+Ways to test your app
+- Unit Testing          (Test a single component without caring of other components)
+- Smoke Testing         (Test the bare minimum funcitonality on your application)
+- Integration Testing   (Test the integration between your application and other application)
+- Regression Testting   (A combination of all unit testing that one component update does not break other components)
+
+@testing Libraby/react
+// jest, is the test runner/framework built into CRA
+// create test specification 
+    it(should render the text of login within the button, () =? {
+        render(<LoginButton/>);
+        screen.getByText('Login') // Searching for HTML by the text login
+    expect(loginButton).toBeDefined();
+})
+// npm run test
 
 
 

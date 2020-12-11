@@ -18,6 +18,10 @@ export default class Clock extends Component{
         }, 1000);
     }   
 
+    componentWillUnmount(){
+        clearInterval(this.timer);
+    }
+
     render() {
      return <div><p>{this.state.datetime.toLocaleTimeString()}</p></div>;
     }
@@ -39,3 +43,5 @@ export default class Clock extends Component{
     // componentWillUnmount (){
     //     clearInterval(this.timer);
     // }
+
+
