@@ -40,7 +40,7 @@ Components
     button /button
    /div 
 
-   Props (this is read-only)
+Props (this is read-only)
    funtiions (props)
    constructor (prop){
        path "aa",
@@ -58,7 +58,7 @@ STATE
     Alternatively
     constructor(){
         super();
-        prop.value = '123' // reactd oes not allow this. props is readonly
+        prop.value = '123' // react does not allow this. props is readonly
         this.state = {
             clock: '12:30'
         }
@@ -231,6 +231,69 @@ Avoid using index as key
 SRC: https://medium.com/@vraa/why-using-an-index-as-key-in-react-is-probably-a-bad-idea-7543de68b17c
 
 Routing
-- Router
+Router -> BrowserRouter, Memory Router, HashRouter
+Link -> Link, NavLink (activeClass)
+
+'/flight'
+Switch (which page should I display, engie or decision making component) ->
+Route (The actual route/page that we are displaying)
+
+<Router>
+    // Link is trigger point
+    <Link to ="1">
+
+    // Decision making
+    <Switch>
+        // Page to be shown or tied to a Link
+        <Route></Route>
+    </Switch>
+</Router>
+
+withRouter() injects route related info into your component properties.
+
+5 Keys Concepts to understand React
+1. JSX (JavaScript XML)
+2. Component, Dumb and Smark || Functional vs Class & Props (read-only)
+3. State, Lifecycle (Mounting, Updating, Unmount)
+4. Conditional and List Rendering
+5. Sharing data between Components 
+
+ReactNative -> mobile application interface (communication point is different)
+React -> Web Application (HTTP Protocols API endpoint)
+
+react-router-dom is used to handle the naviation within our component
+Router- container to your routes
+Link - trigger point for your naviation
+Switch - decision making on which route to display
+Route - actual route/page to be displayed
+
+'Prop Drilling'
+- Lift/Move  the common state data that is shareable to a common parent components and we pass the data into child as properties 
+
+Services
+- Communation or integration to 3rd party application or endpoints
+- Business logic
+
+High Order Component
+- a compoenet that contain reusable logic across multiple Components
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

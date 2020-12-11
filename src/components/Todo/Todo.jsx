@@ -7,7 +7,7 @@ class Todo extends Component {
     state = {
         task: "",
         countTask: 0,
-        defaultNoTaskText: "Empty todo list, please add something",
+        defaultNoTaskText: "Empty todo list, please add something.",
         taskList: []
     };
 

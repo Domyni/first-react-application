@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AppBar from '../AppBar/AppBar';
 import AppLogo from '../AppLogo/AppLogo';
 import logo from '../../assets/netflix-logo.svg';
 import NavItem from '../NavItem/NavItem';
-import Clock from '../Clock/Clock.jsx';
+
 import LoginBtn from '../LoginButton/LogIn';
 import LogoutBtn from '../LogoutButton/LogOut';
-import Counter from '../Counter/Counter';
-import Todo from '../Todo/Todo';
+import HomePage from '../../routes/Home/Home';
+import MyList from '../../routes/MyList/MyList';
+import ShowDetail from '../../routes/ShowDetail/ShowDetail'
 import './Netflix.css';
 
 // Class keyword with component named "Netflix" here as smart component
@@ -16,48 +18,47 @@ import './Netflix.css';
 
 class Netflix extends Component {
     state = {
-        showClock: true,
-        username: null,
+        username: "Visitor",
     };
 
     login = () =>{
         this.setState({
-            username: 'Wasin',
+            username: "Wasin",
         });
     };
 
     logout = () =>{
         this.setState({
-            username: null,
+            username: "Visitor",
         });
     };
 
     render(){
         const logButton = 
-            this.state.username === null ? (
+            this.state.username === "Visitor" ? (
             <LoginBtn login={this.login}/>
           ): (
             <LogoutBtn logout={this.logout} />
           ); 
 
         return (
-            <>
+            <Router>
                 <AppBar>
-                    <AppLogo logo={logo} path="top"/>
-                    <NavItem path="#home">Home</NavItem>
-                    <NavItem path="#myList">My List</NavItem>
+                    <AppLogo logo={logo} path="/"/>
+                    
+                    {/* NavItem wrapped with NavLink */}
+                    <NavItem path="/">Home</NavItem>
+                    <NavItem path="/myList">My List</NavItem>
                     {logButton}
-                </AppBar>   
+                </AppBar>
                 <main>
-                    {this.state.showClock && <Clock/>}
-                    <Counter />
-                    <Todo />
-                    {this.state.todo}
-                    {this.state.username !== null && (
-                    <p className="greeting"> Greetings! {this.state.username}</p>
-                    )}
+                    <Switch>
+                        <Route exact path="/" > <HomePage Name={this.state.username} /> </Route>
+                        <Route path="/mylist"> <MyList Name={this.state.username}/> </Route>
+                        <Route path="/shows/:id/:name?"> <ShowDetail /> </Route>
+                    </Switch>
                 </main>
-            </>
+            </Router>
         );
     }
 }
@@ -109,3 +110,11 @@ export default Netflix;
     //         filter: value
     //     });
     // };
+
+
+    // showClock: true,
+    // {this.state.showClock && <Clock/>}
+
+    // {this.state.username !== null && (
+    //     <p className="greeting"> Greetings! {this.state.username}</p>
+    //     )}
