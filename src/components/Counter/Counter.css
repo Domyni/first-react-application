@@ -1,13 +1,8 @@
-.CounterBtn {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.CounterBtn button {
+.counter-btn {
     font-size: 18px;
     cursor: pointer;
     width: 2rem;
-    margin-right: 0.5rem;
+    margin: 0.5rem 0.5rem 2rem 0;
 }
 
 

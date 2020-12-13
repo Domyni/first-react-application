@@ -6,7 +6,6 @@ class ShowDetail extends Component {
     render(){
         console.log(this.props);
         return <p>This is Show Detail</p>;
-        
     }
 }
 

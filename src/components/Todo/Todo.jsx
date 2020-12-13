@@ -11,13 +11,13 @@ class Todo extends Component {
         taskList: []
     };
 
-    onChangeEvent = (e) => {
+    handleInputChange = (e) => {
         this.setState({
             task: e.target.value
         });
     };
 
-    onAddEvent = (e) => {
+    handleAddTodo = (e) => {
         e.preventDefault();
         if(this.state.task !== ""){
             this.setState({
@@ -34,11 +34,17 @@ class Todo extends Component {
         return (
             <div>
                 <form>
-                    <input type="text" name="task" value={this.state.task} onChange={this.onChangeEvent} />
-                    <button type="submit" className="TodoBtn" onClick={this.onAddEvent}>Add Todo</button>
+                    <input type="text" name="task" value={this.state.task} 
+                           onChange={this.handleInputChange} />
+
+                    <button type="submit"
+                            className="addTodo-btn" 
+                            onClick={this.handleAddTodo}> 
+                            Add Todo
+                    </button>
                     {this.state.countTask === 0 && (<p>{this.state.defaultNoTaskText}</p>)}
                 </form>
-                {this.state.taskList[0] !== undefined && (<TodoList list={this.state.taskList} />)}
+                {this.state.taskList !== undefined && (<TodoList list={this.state.taskList} />)}
             </div>
         );
     }

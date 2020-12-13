@@ -6,35 +6,35 @@ class Counter extends Component {
         count: 0
     };
     
-    increaseCount(){
-        this.setState ({
+    handleIncrement = () => {
+        this.setState({
             count: this.state.count + 1
         });
     }
 
-    decreaseCount(){
+    handleDecreament = () => {
         this.setState({
-            count: this.state.count - 1
-        });
-    }
-
-    addtoCart = () => {
-        return this.increaseCount();
-    }
-
-    removeFromCart = () => {
-        return this.decreaseCount();
+            count: this.state.count -1
+        })
     }
 
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <span> Counter ({this.state.count}) </span>&nbsp;
-                <div className ="CounterBtn">
-                    <button type="button" onClick={this.addtoCart}> + </button>
-                    <button type="button" onClick={this.removeFromCart}> - </button>
+                <div>
+                    <button type="button" 
+                            className="counter-btn"
+                            onClick={this.handleIncrement}> 
+                            + 
+                    </button>
+                    <button type="button" 
+                            className="counter-btn"
+                            onClick={this.handleDecreament}> 
+                            - 
+                    </button>
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 }
