@@ -6,11 +6,10 @@ class Mylist extends Component {
         return (
         <div>
             <p>This is My List </p> 
-            <p>Username : {this.props.Name}</p>
+            <p>Username : {this.props.user}</p>
         </div>
-        )
+        );
     }
 }
 
-// Only one single default export
 export default Mylist;

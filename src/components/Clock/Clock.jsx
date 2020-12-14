@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // Class component - Smart Component (Support State out of the box)
 export default class Clock extends Component{
+
     constructor(){
         super();
         this.state = {
@@ -13,7 +14,7 @@ export default class Clock extends Component{
     componentDidMount(){
         this.timer = setInterval(() => {
             this.setState({
-                datetime: new Date(),
+                datetime: new Date()
             });
         }, 1000);
     }   

@@ -5,12 +5,12 @@ import Clock from '../../components/Clock/Clock.jsx';
 import './Home.css';
 
 class HomePage extends Component {
-    
+
     render(){
         return (
             <div>
                 <p>This is Home Page</p>
-                <p>Username : {this.props.Name}</p>
+                <p>Username : {this.props.user}</p>
                 <Clock />
                 <Counter />
                 <Todo />  
@@ -19,5 +19,4 @@ class HomePage extends Component {
     }
 }
 
-// Only one single default export
 export default HomePage;

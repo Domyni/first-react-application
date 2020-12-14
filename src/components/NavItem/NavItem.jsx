@@ -6,7 +6,9 @@ import './NavItem.css'
 // Function component accept property via argument.
 
 export default function NavItem({path, children}){
-    return <NavLink className="nav-item" to={path}>
-           {children}
+
+    return <NavLink className="nav-item" 
+                    to={path}>
+                    {children}
            </NavLink>
 }

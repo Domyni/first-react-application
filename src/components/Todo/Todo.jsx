@@ -6,7 +6,6 @@ class Todo extends Component {
 
     state = {
         task: "",
-        countTask: 0,
         defaultNoTaskText: "Empty todo list, please add something.",
         taskList: []
     };
@@ -21,13 +20,10 @@ class Todo extends Component {
         e.preventDefault();
         if(this.state.task !== ""){
             this.setState({
-            countTask: this.state.countTask + 1,
             taskList: [...this.state.taskList, this.state.task.trim()],
+            task:""
             });
         }
-        this.setState({
-            task:""
-        });
     }
 
     render(){ 
@@ -36,15 +32,15 @@ class Todo extends Component {
                 <form>
                     <input type="text" name="task" value={this.state.task} 
                            onChange={this.handleInputChange} />
-
+                           
                     <button type="submit"
                             className="addTodo-btn" 
                             onClick={this.handleAddTodo}> 
                             Add Todo
                     </button>
-                    {this.state.countTask === 0 && (<p>{this.state.defaultNoTaskText}</p>)}
+                    {this.state.taskList.length === 0 && (<p>{this.state.defaultNoTaskText}</p>)}
                 </form>
-                {this.state.taskList !== undefined && (<TodoList list={this.state.taskList} />)}
+                {this.state.taskList.length !== 0 && (<TodoList list={this.state.taskList}/>)}
             </div>
         );
     }

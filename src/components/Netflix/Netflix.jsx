@@ -35,26 +35,20 @@ class Netflix extends Component {
 
     render(){
         const logButton = 
-            this.state.username === "Visitor" ? (
-            <LoginBtn login={this.login}/>
-          ): (
-            <LogoutBtn logout={this.logout} />
-          ); 
+            this.state.username === "Visitor" ? (<LoginBtn login={this.login}/>): (<LogoutBtn logout={this.logout}/>); 
 
         return (
             <Router>
                 <AppBar>
-                    <AppLogo logo={logo} path="/"/>
-                    
-                    {/* NavItem wrapped with NavLink */}
+                    <AppLogo logo={logo} path="/"/>    
                     <NavItem path="/">Home</NavItem>
                     <NavItem path="/myList">My List</NavItem>
                     {logButton}
                 </AppBar>
                 <main>
                     <Switch>
-                        <Route exact path="/" > <HomePage Name={this.state.username} /> </Route>
-                        <Route path="/mylist"> <MyList Name={this.state.username}/> </Route>
+                        <Route exact path="/"> <HomePage user={this.state.username}/> </Route>
+                        <Route path="/mylist"> <MyList user={this.state.username}/> </Route>
                         <Route path="/shows/:id/:name?"> <ShowDetail /> </Route>
                     </Switch>
                 </main>

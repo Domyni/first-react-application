@@ -7,14 +7,22 @@ class Counter extends Component {
     };
     
     handleIncrement = () => {
-        this.setState({
-            count: this.state.count + 1
-        });
+        this.increamentCount();
     }
 
     handleDecreament = () => {
-        this.setState({
-            count: this.state.count -1
+        this.decreamentCount();
+    }   
+
+    increamentCount = () => {
+        this.setState((state) => {
+            return {count: state.count + 1};
+        });
+    }
+
+    decreamentCount = () => {
+        this.setState((state) => {
+            return {count: state.count - 1};
         })
     }
 

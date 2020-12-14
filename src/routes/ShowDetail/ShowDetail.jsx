@@ -9,5 +9,4 @@ class ShowDetail extends Component {
     }
 }
 
-// Only one single default export
 export default withRouter(ShowDetail);
