@@ -253,7 +253,7 @@ withRouter() injects route related info into your component properties.
 
 5 Keys Concepts to understand React
 1. JSX (JavaScript XML)
-2. Component, Dumb and Smark || Functional vs Class & Props (read-only)
+2. Component, Dumb and Smart || Functional vs Class & Props (read-only)
 3. State, Lifecycle (Mounting, Updating, Unmount)
 4. Conditional and List Rendering
 5. Sharing data between Components 
@@ -342,6 +342,7 @@ CSS Preprocessor
 
 // #1 Ability to declare variables for reusable
 $primary-color: blue;
+$default-font-sizes;
 
 // #2 Ability to nest your selectors
 .btn {
@@ -365,6 +366,11 @@ $primary-color: blue;
 
 // #3 import different sass files
     @import "variable"
+
+// variable.scss 
+// button.scss
+// image.scss 
+// index.scss << contain all above import.
 
 // #4 Mixin (function)
     @mixin font-styling($font-size, $font-color, $font-family: 'Times News Roman'){
@@ -395,7 +401,70 @@ Ways to test your app
         screen.getByText('Login') // Searching for HTML by the text login
     expect(loginButton).toBeDefined();
 })
-// npm run test
+
+assertion = expect something to behave something
+
+Modern React Concepts
+Hooks (introduce in React 16.8+)
+- A function provided by react Library
+- function that allows developer to "hook" into react feature on functional component
+    - useState:
+        allow manage state data within a functional component
+    - useEffect:
+        hook into lifecycle methods such as `componentDidmount, componentDidUpdate, componentWillUnmount`
+
+- Ability to separate state manipulation into smaller/individual division
+
+Hooks is a function proided by rteact to allow us to hook into React features such as state and Lifecycle method
+in a function component.
+
+- Higher Order Component feature provided to reuse or share logic/implementation across different component.
+- class binding this scoping
+
+//Hook syntax for useState
+import Reaect, {useState} from 'react';
+function Clock () {
+    state = {
+        datetime: new Date();
+    }
+
+    // Array destructuring
+    // x, setX
+    const [time, setTime] = useState (any data type); // returning an array with a pair of values [time, setTime].
+
+    const timeState = useState (any data type);
+    const time = useState (any data type);
+    const setTime = useState (any data type);
+}
+
+// Hook syntax for useEffect, an effect is an output or something that is produced by your component
+// side-effect of your component
+// fetching data from an API
+// Changing the DOM tree
+
+const [list, SetList] = useState([]);
+
+// componentDidMount(), componentDidUpdate()
+useEffect( ()=> {
+    window.fetch().then(listValues) =>{
+        SetList(listValues):
+    }
+})
+
+- use Hooks on functional component (not class or simple functional)
+- use Hooks only on top-level with the function
+- use Hooks within other Hooks
+
+Context API
+- meant for sharing data across multiple components instead of 'Props Drilling' 
+- create "Provider" to provide value to your "Consumer"
+
+const Context = React.createContext();
+<Context.Provider valuie={}>
+    const contextValue = useContext(Context);
+</Context.Provider>
+
+
 
 
 
