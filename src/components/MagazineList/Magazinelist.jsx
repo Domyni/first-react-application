@@ -12,7 +12,6 @@ class MagazineList extends Component {
         try {
             const response = await fetch("https://www.ourdaily.co/explore/api/magazines");
             const data = await response.json();
-            console.log(MagazineList.name);
             this.setState({
                 isLoading: false,
                 magazineData: data.data.Regional
