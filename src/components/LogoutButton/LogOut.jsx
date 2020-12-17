@@ -4,7 +4,8 @@ export default function logOut(props){
   
     return (
             <button type="submit" 
-                    onClick={props.logout}>
+                    onClick={props.logout}
+                    className={props.name}>
                     Log out
             </button>
     );

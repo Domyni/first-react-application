@@ -10,6 +10,7 @@ import LogoutBtn from '../LogoutButton/LogOut';
 import HomePage from '../../routes/Home/Home';
 import MyList from '../../routes/MyList/MyList';
 import ShowDetail from '../../routes/ShowDetail/ShowDetail'
+import styles from './Netflix.module.css';
 import './Netflix.css';
 
 // Class keyword with component named "Netflix" here as smart component
@@ -21,13 +22,13 @@ class Netflix extends Component {
         username: "Visitor",
     };
 
-    login = () =>{
+    login = () => {
         this.setState({
             username: "Wasin",
         });
     };
 
-    logout = () =>{
+    logout = () => {
         this.setState({
             username: "Visitor",
         });
@@ -35,15 +36,17 @@ class Netflix extends Component {
 
     render(){
         const logButton = 
-            this.state.username === "Visitor" ? (<LoginBtn login={this.login}/>): (<LogoutBtn logout={this.logout}/>); 
-
+            this.state.username === "Visitor" ? 
+            (<LoginBtn login={this.login} name={styles.btn} />): 
+            (<LogoutBtn logout={this.logout} name={styles.btn}/>); 
+            
         return (
             <Router>
                 <AppBar>
                     <AppLogo logo={logo} path="/"/>    
                     <NavItem path="/">Home</NavItem>
                     <NavItem path="/myList">My List</NavItem>
-                    {logButton}
+                    {logButton} 
                 </AppBar>
                 <main>
                     <Switch>
