@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ShoppingCart extends Component{
+export default class ShoppingCart extends Component {
     state = {
         productList: [],
         totalPrice: 0,
@@ -11,13 +11,13 @@ export default class ShoppingCart extends Component{
 // Each hold their own STATE and PROPERTY
 // React has one way direction to pass data.    
 
-constructor(){
+constructor() {
     super();
     // bind function to class context
     this.addToCart = this.addToCart.bind(this);
     }
 
-increamentCount(){
+increamentCount() {
     // perfomr some calculation before adding count
     // Component state
     this.setState({
@@ -31,13 +31,13 @@ increamentCount(){
     // })
     }
 
-addToCart(){
+addToCart() {
     console.log("adding to cart");
     // this in this context is referring to addToCart()
     this.increamentCount();
     }
 
-addToCartwithClassFieldSyntax = () =>{
+addToCartwithClassFieldSyntax = () => {
     this.increamentCount();
 }
 
@@ -47,8 +47,8 @@ increaseTotlaPriceHandler = () => {
     });
 };
 
-render(){
-    // this in this contect is referrgin to ShoopingCart
+render() {
+    // this in this contect is referring to ShopingCart
     return (
         <div>
             <p>Shopping Cart Item {this.state.itemCount}</p>

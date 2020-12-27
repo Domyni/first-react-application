@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class Filter extends Component{
-    state ={
+    state = {
         filter: '',
         anotherFiler: '',
     }
@@ -17,7 +17,7 @@ export default class Filter extends Component{
         this.props.filter(this.state.filter);
     };
 
-    render(){
+    render() {
         return (
             <form onSubmit="">
                 <input type="text" name="filter" onChange={this.onChangeEventHandler}/>

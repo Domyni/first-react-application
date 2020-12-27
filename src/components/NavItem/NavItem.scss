@@ -1,0 +1,14 @@
+.nav-item {
+  text-decoration: none;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  
+    &:hover {
+      text-decoration: underline;
+      color: rgb(255, 255, 255);
+    }
+}
+  
+@media screen and (max-width: 420px) {
+.app-bar a:nth-child(2) {display: none;}
+}

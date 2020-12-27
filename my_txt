@@ -10,6 +10,17 @@ Summary
 - `npm rum test`  - Test your application
 - `npm run eject` - Giving you back the control configuration of react application
 
+// Class keyword with component named "Netflix" here as smart component
+// Netflix child to take in a lot of functions (extends) from Coponent, Must extend from Component provided by `react` library.
+// Render is a method to paint / show on your application
+
+IMPORT
+// Alwasy import react to indicate to compiler
+// All import require extension EXCEPT .js extension.
+
+// . current folder
+// .. one hierarcy up folder
+
 Recap
 - Node Package Manager (npm)
     - Copy Paste Function
@@ -254,9 +265,35 @@ withRouter() injects route related info into your component properties.
 5 Keys Concepts to understand React
 1. JSX (JavaScript XML)
 2. Component, Dumb and Smart || Functional vs Class & Props (read-only)
+    - Function that represents a certain section on your web application user interfaces
+    - Class (Smart) and Functional (Dumb)
+    - Class, extends, contructor OOP
+    - Class supports state out of the box
+    - V16.8 you can use state in Functional component
+    - Hook as a function to tap into state and life cycle method
+    - Static data to be displayed onto the compoenet
+    - JavaScript is a Fucntional Programming
+    - ErrorBoundary no choice but to use class()
+
 3. State, Lifecycle (Mounting, Updating, Unmount)
+    - update data within the component
+    - mount
+        - initialiaztion phase of a React Component
+    - render
+        - outputting the HTML to the DOM tree
+    - umonunt
+        -removing the HTML from DOM tree and cleaning up any unwanted or ongoing processes
+
 4. Conditional and List Rendering
+    - use JavaScript operators to hide or show component based on conditions
+    - rendering an array of components
+    - <List> < Component key={unique value amongst its sibling} />
+
 5. Sharing data between Components 
+    - Prop drilling - drilling your property down into children
+    - Context API
+    - Redux 3rd party library 
+    - HOC component that allows you to share implementation / logic between your components
 
 ReactNative -> mobile application interface (communication point is different)
 React -> Web Application (HTTP Protocols API endpoint)
@@ -415,13 +452,13 @@ Hooks (introduce in React 16.8+)
 
 - Ability to separate state manipulation into smaller/individual division
 
-Hooks is a function proided by rteact to allow us to hook into React features such as state and Lifecycle method
+Hooks is a function proided by react to allow us to hook into React features such as state and Lifecycle method
 in a function component.
 
 - Higher Order Component feature provided to reuse or share logic/implementation across different component.
 - class binding this scoping
 
-//Hook syntax for useState
+// Hook syntax for useState
 import Reaect, {useState} from 'react';
 function Clock () {
     state = {
@@ -455,22 +492,184 @@ useEffect( ()=> {
 - use Hooks only on top-level with the function
 - use Hooks within other Hooks
 
+// setUser is an updatae function
+cost [user, setUser] = useState({
+    name,
+
+    gender
+})
+setUser({
+    name
+});
+
+useEffect()
+- tap/hook into React Lifecycle method
+function sideEffect(){
+    // perfomr some side effect to your app/func
+}
+
+const depencies = [];
+useEffect(sudfeEffect[, dependencies]);
+
+
 Context API
 - meant for sharing data across multiple components instead of 'Props Drilling' 
 - create "Provider" to provide value to your "Consumer"
 
-const Context = React.createContext();
-<Context.Provider valuie={}>
+to create a context
+
+const user = {
+    usernme: 'john'
+}
+
+const UserContext = React.createContext();
+<UserContext.Provider valuie={user}>
     const contextValue = useContext(Context);
 </Context.Provider>
 
+window local storage = permanet storage until explicitly delete
+window session storage = data is removed after closing the sesesons
+
+Deploy your app,
+1. create home page key value on package.json using the format
+
+https//username.github.in/application-name
+
+2. Install npm install gh-pages --save-dev
+3. npm run xyz
+    prexyz -> xyz -> postxyz
+
+ErrrorBoundary
+- Graceful way of hanning a synchonous error in React Component
+- Any error that is not within a async process or function call back
+- Async process 
+    - setTImeout
+    - setInterval  
+    - window.fetch
+    - async func abc(){}
+    - promise
+- call back function
+    - Event handler
+- Allo multiple error boundary within a component
+
+- Persist/ Save data across page refresh (browser not React)
+    - localStorage (data stored permanently unless removed explicitly user)
+    - setssionStorage (data are lost the moment user cloases your application tabon the browser)
+
+- Deploying React Application
+    - `npm run bild` >> produces a bundle that has been optimised
+    - GitHub Pages
 
 
 
 
+Netflix API
+: https://api.themoviedb.org/3/discover/tv?api_key=bae0d6e59a93e166f73ccf08386c4416&with_networks=213
+
+const API_BASE_URL = 'https://api.themoviedb.org/3';
+const NETFLIX_NETWORK_ID = '213';
+const POSTER_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';
 
 
+The to prop with an object
+
+The to prop can be either a string or an object. The object can contain the following properties:
+• pathname: The path to navigate to
+• search: The query parameters to the path, represented as a string value
+• hash: a hash string to add to the URL
+• state: an object containing state information that the rendered component can consume
+
+Using these parameters, let's add a <Link> component:
+
+<Link
+to={{
+pathname:'/user',
+search:'?id=1',
+hash:'#hash',
+state: { isAdmin:true }
+    }}>
+    User
+</Link>
+The preceding code translates to the following:
+
+<a href="/user?id=1#hash">User</a>
+The state information is not included in the URL path; however, it's available to the component that gets rendered as a result of a <Route> match:
+
+<Route
+path="/user"
+render={({ location }) => {
+const { pathname, search, hash, state } = location;
+return (
+<div>
+Inside User route
+<h5>Pathname: {pathname}</h5>
+<h5>Search: {search}</h5>
+<h5>Hash: {hash}</h5>
+<h5>State: {'{'}
+{Object.keys(state).map((element, index) => {
+return (
+<spankey={index}>
+{element}: {state[element].toString()}
+</span>
+)
+})}
+{'}'}
+</h5>
+</div>
+);
+}}
+/>
+
+The location object contains all of the previously defined parameters, including the state object.
+
+The state object can be used to store data as the user navigates through the application and provide this data to the component that gets rendered next as a result of <Route> match.
 
 
+/ PLEASE IGNORE BELOW
+// import ShoppingCart from '../ShoppingCart/ShoppingCart'
+// import PosterList from '../PosterList/PosterList';
+// import Filter from '../Filter/Filter';
+    // State
+    // filter: ''
+
+    // componentDidMount(){
+    //     setTimeout(() => {
+    //         this.setState({
+    //             showClock: false,
+    //         });
+    //     }, 5000);
+    // }
+
+    // filter = (value) => {
+    //     this.setState({
+    //         filter: value,
+    //     });
+    // };
+
+
+    //     <ShoppingCart/>
+    //      {this.state.username !== null && (
+    //     <p className="greeting"> Greetings! {this.state.username}</p>
+    //      )}
+    //     {[1, 2, 3, 4, 5].map((value) =>
+    //         <li>{value}</li>
+    //     )}
+    // <PosterList title="Trending Now"/>
+    // <Filter/>
+
+    // filter = (value) => {
+    //     // console.log(value);
+    //     this.setState({
+    //         filter: value
+    //     });
+    // };
+
+
+    // showClock: true,
+    // {this.state.showClock && <Clock/>}
+
+    // {this.state.username !== null && (
+    //     <p className="greeting"> Greetings! {this.state.username}</p>
+    //     )}
 
 

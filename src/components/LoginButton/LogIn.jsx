@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-export default function logIn(props){
+export default function LogIn(props) {
   
     return (
             <button type="submit" 

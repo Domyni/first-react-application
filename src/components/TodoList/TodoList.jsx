@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function todoList (props){
+export default function TodoList (props) {
     const taskListItems = props.list;
     return (
         <ul>
@@ -12,7 +12,6 @@ function todoList (props){
     )
 }
 
-export default todoList;
 
 
 

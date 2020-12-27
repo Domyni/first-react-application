@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TodoList from './TodoList';
-import './Todo.css';
+import TodoList from '../TodoList/TodoList';
+import './Todo.scss';
 
-class Todo extends Component {
+export default class Todo extends Component {
 
     state = {
         task: "",
@@ -18,7 +18,7 @@ class Todo extends Component {
 
     handleAddTodo = (e) => {
         e.preventDefault();
-        if(this.state.task !== ""){
+        if (this.state.task !== "") {
             this.setState({
             taskList: [...this.state.taskList, this.state.task.trim()],
             task:""
@@ -26,7 +26,7 @@ class Todo extends Component {
         }
     }
 
-    render(){ 
+    render() { 
         return (
             <div>
                 <form>
@@ -34,30 +34,14 @@ class Todo extends Component {
                            onChange={this.handleInputChange} />
                            
                     <button type="submit"
-                            className="addTodo-btn" 
+                            className="addTodoBtn" 
                             onClick={this.handleAddTodo}> 
                             Add Todo
                     </button>
-                    {this.state.taskList.length === 0 && (<p>{this.state.defaultNoTaskText}</p>)}
                 </form>
+                {this.state.taskList.length === 0 && (<p>{this.state.defaultNoTaskText}</p>)}
                 {this.state.taskList.length !== 0 && (<TodoList list={this.state.taskList}/>)}
             </div>
         );
     }
 }
-
-export default Todo;
-
-
-
-
-
-// PLEASE IGNORE BELOW
-
-    // console.log(e.target)
-    // console.log(e.target.value)
-    
-    // console.log(this.state.taskList);
-
-// this.props.taskInput(this.state.task);
-// console.log(this.state.task);
