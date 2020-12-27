@@ -38,7 +38,7 @@ export default class Netflix extends Component {
             (<LogoutBtn logout={this.logout} name={styles.logBtn} />); 
             
         return (
-            <Router>
+            <Router basename="/first-react-application">
                 <UserContext.Provider value={{username: this.state.username}}>
                 <AppBar>
                     <NavLink to="/" className="nav-logo">
