@@ -1,0 +1,55 @@
+.img {
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    text-align: justify;
+}
+
+.overview{
+    line-height: 25px;
+}
+
+.high {
+    color: rgb(134, 255, 64);
+}
+
+.average {
+    color: rgb(245, 173, 66);
+}
+
+.playBtn {
+    background-color: rgb(185, 30, 30);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    margin-right: 10px;
+
+    &:hover{
+        background-color: rgb(210, 17, 0);
+    }
+    
+    &:active, &:focus{
+        outline: 0;
+    }
+}
+

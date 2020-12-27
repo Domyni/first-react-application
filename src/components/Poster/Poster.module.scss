@@ -1,0 +1,12 @@
+.img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: 5px 5px 10px 0px ;
+
+    &:hover {
+        border: solid rgb(0, 0, 0) 3px;
+        box-sizing: border-box;
+    }
+}
+

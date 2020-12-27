@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import Poster from '../../components/Poster/Poster'
+import { MyListContext } from '../../contexts/MyListContext';
 
-class Mylist extends Component {
+// Display a list of posters from MyListContext
 
-    render(){
-        return (
-        <div>
-            <p>This is My List </p> 
-            <p>Username : {this.props.user}</p>
-        </div>
-        );
-    }
+export default function Mylist() {
+    
+   const { list } = useContext(MyListContext);
+
+    return  list.length !== 0 ? (
+            <div className="mylist">
+                {list.map((posterData) => { 
+                    return  <Poster {...posterData} key={posterData.id}/>
+                    })}     
+            </div>
+            ): 
+            <p>Your list is currently empty ...</p>
 }
-
-export default Mylist;

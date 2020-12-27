@@ -1,27 +1,17 @@
-import React, { Component } from 'react';
-// import Counter from '../../components/Counter/Counter';
-// import Todo from '../../components/Todo/Todo';
-// import Clock from '../../components/Clock/Clock.jsx';
-// import ShowService from '../../services/showService.jsx';
-import MagazineList from '../../components/MagazineList/Magazinelist.jsx'
-import './Home.css';
+import React, { useContext } from 'react';
+import PosterList from '../../components/PosterList/PosterList';
+import UserContext from '../../contexts/UserContext'
 
-class HomePage extends Component {
+export default function HomePage() {
 
-    render(){
+    const user = useContext(UserContext);
+
         return (
-            <div>
-                {/* <p>This is Home Page</p> */}
-                <p>Username : {this.props.user}</p>
-                {/* <Clock />
-                <Counter />
-                <Todo /> */}
-                <MagazineList />  
+            <div className="home">
+                <p>Welcome {user.username}!</p>
+                <PosterList />  
             </div>
         );
     }
-}
-
-export default HomePage;
 
 

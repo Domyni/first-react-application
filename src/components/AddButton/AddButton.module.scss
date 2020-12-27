@@ -1,0 +1,25 @@
+.addBtn {
+    background-color: rgb(255, 255, 255);
+    color: rgb(26, 17, 17);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    max-width: 90px;
+    height: auto;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 5px;
+
+    &:hover {
+        font-weight: bold;
+        background-color:rgb(210, 17, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    &:active, &:focus {
+        outline: 0;
+    }
+}
